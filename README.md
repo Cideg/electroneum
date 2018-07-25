@@ -91,6 +91,7 @@ invokes cmake commands as needed.
 
     *Note*: If cmake can not find zmq.hpp file on OS X, installing `zmq.hpp` from
     https://github.com/zeromq/cppzmq to `/usr/local/include` should fix that error.
+    or apt-get install -y libzmq-dev
 
 * The resulting executables can be found in `build/release/bin`
 
