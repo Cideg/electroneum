@@ -52,6 +52,39 @@ Emission Plan | Emission (TSX) | Total Supply (TSX)
 0.5 TSX/ Block from Blockheight 6,307,201 onwards adding 262,800 TSX/ year to Total Supply
 ```
 
+### Compiling Tesoro from source
+
+[1] On Debian/Ubuntu libgtest-dev only includes sources and headers. You must build the library binary manually. This can be done with the following command sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv libg* /usr/lib/ [2] libnorm-dev is needed if your zmq library was built with libnorm, and not needed otherwise
+
+Install all dependencies at once on Debian/Ubuntu:
+
+sudo apt update && sudo apt install build-essential cmake pkg-config libboost-all-dev libssl-dev libzmq3-dev libunbound-dev libsodium-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev doxygen graphviz libpgm-dev qttools5-dev-tools libhidapi-dev libusb-dev libprotobuf-dev protobuf-compiler
+
+Install all dependencies at once on macOS with the provided Brewfile: brew update && brew bundle --file=contrib/brew/Brewfile
+
+FreeBSD one liner for required to build dependencies pkg install git gmake cmake pkgconf boost-libs libzmq libsodium
+
+Cloning the repository
+Clone recursively to pull-in needed submodule(s):
+
+$ git clone --recursive https://github.com/Tesoro-Dev/tesoro.git
+
+If you already have a repo cloned, initialize and update:
+
+$ cd tesoro && git submodule init && git submodule update
+
+Build instructions
+tesoro uses the CMake build system and a top-level Makefile that invokes cmake commands as needed.
+
+On Linux and macOS
+Install the dependencies
+
+Change to the root of the source code directory, change to the most recent release branch, and build:
+
+cd tesoro
+make
+
+
 #### CLI RPC Commands
 [**Wallet**](https://web.getmonero.org/resources/developer-guides/wallet-rpc.html) | 
 [**Daemon**](https://web.getmonero.org/resources/developer-guides/daemon-rpc.html)
